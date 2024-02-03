@@ -230,9 +230,9 @@
   {
     "objectID": "Projects/project1.html",
     "href": "Projects/project1.html",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - [What’s In a Name?]",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "Pop culture will always have a distinct impact on the culture of naming people. We see this specifically with the name Jordan. Just as Michael Jordan ruled pop culture in the 80s and 90s, the name ‘Jordan’ also saw a similar spike in popularity. The name was versatile, being a name for girls, boys, even shoes. The popularity also followed the basketball star, seeing distinct dropoff following the retirement of the phenom. \n\n\nRead and format project data\nurl = \"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\"\ndf = pd.read_csv(url)\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -241,9 +241,9 @@
   {
     "objectID": "Projects/project1.html#elevator-pitch",
     "href": "Projects/project1.html#elevator-pitch",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - [What’s In a Name?]",
     "section": "",
-    "text": "paste your elevator pitch here A SHORT (4-5 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS.\n\n\nRead and format project data\n# Include and execute your code here\ndf = pd.read_csv(\"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks",
+    "text": "Pop culture will always have a distinct impact on the culture of naming people. We see this specifically with the name Jordan. Just as Michael Jordan ruled pop culture in the 80s and 90s, the name ‘Jordan’ also saw a similar spike in popularity. The name was versatile, being a name for girls, boys, even shoes. The popularity also followed the basketball star, seeing distinct dropoff following the retirement of the phenom. \n\n\nRead and format project data\nurl = \"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\"\ndf = pd.read_csv(url)\n\n\nHighlight the Questions and Tasks",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -252,9 +252,9 @@
   {
     "objectID": "Projects/project1.html#questiontask-1",
     "href": "Projects/project1.html#questiontask-1",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - [What’s In a Name?]",
     "section": "QUESTION|TASK 1",
-    "text": "QUESTION|TASK 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q1 chart .cell execution_count=4}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::\n::: {#cell-Q1 table .cell .tbl-cap-location-top tbl-cap=‘Not much of a table’ execution_count=5}\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0\n\n\n\n\n\n\n:::",
+    "text": "QUESTION|TASK 1\nHow does your name at your birth year compare to its use historically?\nThe name ‘Caleb’ started it’s rise in popularity in the early 1970s. Over the years it showed a consistent slow increase in usage till 1988 where the name started to skyrocket. It continues this gradual increase till 2002, where we saw a reported 11,637 people named ‘Caleb’. My birthyear, 2001, is the year just before the peak with a reported 11,171 namings.\n\n\nRead and format data\n#df = px.data.gapminder().query(\"country=='Canada'\")\n'''mark it with \nyear I was born, \nmin usage,\nmax usage'''\nchart = px.line(\n    df.query('name == \"Caleb\"'), \n    x=\"year\", \n    y=\"Total\",\n    color = \"name\", \n    title='Popularity of the name \"Caleb\"')\nchart.add_trace(go.Scatter(\n    x =[2001, 2002, 1956],\n    y = [11171, 11637, 5], \n    mode = \"markers\", \n    text = ['The year I was born', 'The year of highest popularity', 'The year of lowest popularity']))   \nchart.add_annotation(\n    x = 2001, \n    y = 11171,\n    text=\"The year I was born\",\n    showarrow=True,\n    arrowhead=1,\n    ax=-100,  \n    ay=70,\n    )                  \nchart.add_annotation(\n    x = 2002, \n    y = 11637,\n    text=\"The year of highest popularity\",\n    showarrow=True,\n    arrowhead=1,\n    ax=-130,  \n    ay=20,\n    )                  \nchart.update_layout(\n    plot_bgcolor = 'white',\n    xaxis_title = 'Year',\n    yaxis_title = 'Total', \n    title_x = 0.5,\n    title_font = dict(size = 20)\n)      \nchart.show()",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -263,9 +263,9 @@
   {
     "objectID": "Projects/project1.html#questiontask-2",
     "href": "Projects/project1.html#questiontask-2",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - [What’s In a Name?]",
     "section": "QUESTION|TASK 2",
-    "text": "QUESTION|TASK 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q2 chart .cell execution_count=7}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::\n::: {#cell-Q2 table .cell .tbl-cap-location-top tbl-cap=‘Not much of a table’ execution_count=8}\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0\n\n\n\n\n\n\n:::",
+    "text": "QUESTION|TASK 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nThe name ‘Brittney’ experienced it’s max usage in the year 1989. With this information, we would guess that her age is most likely 35. The years of least popularity on each side of the graph was 1974 and 2015, so we would say she is no older than 50, and no younger than 9.\n::: {#cell-Q2 chart .cell execution_count=4}\n\nplot example\n# Include and execute your code here\nchart = px.line(\n    df.query('name == \"Brittney\"'), \n    x=\"year\", \n    y=\"Total\",\n    color = \"name\", \n    title='Usage of the name \"Brittney\"')\nchart.add_trace(go.Scatter(\n    x =[1989],\n    y = [7417.5], \n    mode = \"markers\", \n    text = []))               \nchart.update_layout(\n    plot_bgcolor = 'white',\n    xaxis_title = 'Year',\n    yaxis_title = 'Total', \n    title_x = 0.5,\n    title_font = dict(size = 20))\nchart.add_annotation(x = 1989, y = 7417.5,\n    text=\"The peak in popularity for 'Brittney'\")\nchart.show()\n\n\n                                                \n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -274,9 +274,9 @@
   {
     "objectID": "Projects/project1.html#questiontask-3",
     "href": "Projects/project1.html#questiontask-3",
-    "title": "Client Report - [Insert Project Title]",
+    "title": "Client Report - [What’s In a Name?]",
     "section": "QUESTION|TASK 3",
-    "text": "QUESTION|TASK 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\ntype your results and analysis here\n\n\nRead and format data\n# Include and execute your code here\n\n\ninclude figures in chunks and discuss your findings in the figure.\n::: {#cell-Q3 chart .cell execution_count=10}\n\nplot example\n# Include and execute your code here\nchart = px.bar(df.head(200),\n    x=\"name\", \n    y=\"AK\"\n)\nchart.show()\n\n\n                                                \nMy useless chart\n\n:::\n::: {#cell-Q3 table .cell .tbl-cap-location-top tbl-cap=‘Not much of a table’ execution_count=11}\n\ntable example\n# Include and execute your code here\nmydat = df.head(1000)\\\n    .groupby('year')\\\n    .sum()\\\n    .reset_index()\\\n    .tail(10)\\\n    .filter([\"year\", \"AK\",\"AR\"])\n\ndisplay(mydat)\n\n\n\n\n\n\n\n\n\nyear\nAK\nAR\n\n\n\n\n96\n2006\n21.0\n183.0\n\n\n97\n2007\n28.0\n153.0\n\n\n98\n2008\n36.0\n212.0\n\n\n99\n2009\n34.0\n179.0\n\n\n100\n2010\n22.0\n196.0\n\n\n101\n2011\n41.0\n148.0\n\n\n102\n2012\n28.0\n140.0\n\n\n103\n2013\n26.0\n134.0\n\n\n104\n2014\n20.0\n114.0\n\n\n105\n2015\n28.0\n121.0\n\n\n\n\n\n\n:::",
+    "text": "QUESTION|TASK 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?\nOf the four names, ‘Mary’ is by far the most popular, seeing a peak of 53,791 usages in the year 1950. Though it isn’t as popular, the names ‘Martha’ and ‘Mary’ see very similar trends with an increase in the 1910s and in the 1940s before peetering out to low popularity. ‘Peter’ and ‘Paul’ also have similar trends to each others, seeing a peak in the 50s and then bottoming out again. The only commonality between the four name is seeing a decline starting in the 80s and continuing that descent into 2015.\n::: {#cell-Q3 chart .cell execution_count=5}\n\nplot example\n# Include and execute your code here\n\nfig = px.line(\n    df.query('name == [\"Peter\", \"Paul\", \"Mary\", \"Martha\"]'), \n    x=\"year\", \n    y=\"Total\", \n    color='name',\n    title = 'Comparing the Popularity of the Names \"Peter\", \"Paul\", \"Martha\", and \"Mary\"')\nchart.update_layout(\n    plot_bgcolor = 'white',\n    xaxis_title = 'Year',\n    yaxis_title = 'Total', \n    title_x = 0.5,\n    title_font = dict(size = 20))\nfig.show()\n\n\n                                                \n\n:::",
     "crumbs": [
       "DS250 Projects",
       "Project 1"
@@ -433,5 +433,16 @@
     "title": "Caleb Peterson’s CV",
     "section": "",
     "text": "2019 Brand Associate, Banana Republic Factory Store\n2020 Volunteer Missionary, The Church of Jesus Christ of Latter-Day Saints\n2023 Warehouse Laborer, Admiral Beverage Corporation"
+  },
+  {
+    "objectID": "Projects/project1.html#questiontask-4",
+    "href": "Projects/project1.html#questiontask-4",
+    "title": "Client Report - [What’s In a Name?]",
+    "section": "QUESTION|TASK 4",
+    "text": "QUESTION|TASK 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\nI chose the name Jordan, in reference to Michael Jordan from the blockbuster film ‘Space Jam’. I chose this name because not only did the movie have an effect, but even more noticably were the effect of his accomplishments outside of hollywood. The name had very low popularity up unitl the 1980s, seeing its lowpoint of 22 uses in 1951. Michael Jordan became relevent soon after the name’s popularity rise, starting his freshman season on University of North Carolina’s basketball team. But, it wasn’t until Michael Jordan’s rookie year in the NBA, 1984, where the name skyrocketed. Going from a name usage count of 2745 in 1984, to 11043 uses by 1990. Coincedentally, this is also year Michael Jordan won his first NBA championship. The name drops slightly over the years, but we see it another increase again following the release of his hit movie ‘Space Jam’ in 1996. The name once again hits it’s a peak in 1998, when Michael Jordan completed his second three-peat championship run. This was the same year that he retired from the Chicago Bulls, and the name never saw the same popularity again.\n::: {#cell-Q4 chart .cell execution_count=6}\n\nplot example\n# Include and execute your code here\nchart = px.line(\n    df.query('name == \"Jordan\"'), \n    x =\"year\", \n    y =\"Total\", \n    color = 'name',\n    title = \"The Impact of Space Jam and Michael Jordan's fame on the name 'Jordan'\")\n\nchart.add_trace(go.Scatter(\n    x =[1982, 1984, 1991, 1996, 1998],\n    y = [2195, 2745, 10785, 10074, 10760], \n    mode = \"markers\", \n    text = [\"Jordan's freshman year at UNC\", \n    \"Jordan's rookie NBA season\",\n    \"Jordan wins his first NBA championship\",\n    \"The release of Space Jam\",\n    \"Jordan  wins second championship 3-peat, announces retirement\",\n    ]))\nchart.add_annotation(x = 1996, y = 10074,\n    text=\"The release of Space Jam\",\n    showarrow=True,\n    arrowhead=1,\n    ax=10,  \n    ay=50,\n    )\nchart.add_annotation(x = 1950, y = 8000,\n    text=\"You may hover over the unmarkerd red dots to get more info \")\nchart.update_layout(\n    plot_bgcolor = 'white',\n    xaxis_title = 'Year',\n    yaxis_title = 'Total', \n    title_x = 0.5,\n    title_font = dict(size = 18))             \nchart.show()\n\n\n                                                \n\n:::",
+    "crumbs": [
+      "DS250 Projects",
+      "Project 1"
+    ]
   }
 ]
